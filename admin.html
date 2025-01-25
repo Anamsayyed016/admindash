@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Ewert&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playwrite+IN&family=Ribeye+Marrow&family=Ysabeau+SC:wght@1..1000&display=swap" 
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Dashboard</title>
+</head>
+<body>
+    <div id="menu" class="menu">
+        
+        <ul>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">Orders</a></li>
+          <li><a href="#">Customers</a></li>
+        </ul>
+      </div>
+      <button id="menuButton" class="menu-button">☰</button>
+      
+      <div>
+        
+        <div class="img-img-logo">
+          <img src="./Image/logo1.jpg" alt="">
+        </div>
+        <div class="hea-head-head1">
+          <h3>The Future of <br> Inventory <br> Management  <br> Starts Here</h3>
+        </div>
+
+          
+        </i><input type="search" placeholder="Search here..." >
+
+        <div class="grid-grid-gridcontainer">
+            <div class="grid-grid-item">
+              <div>
+                <!-- container1 -->
+              <i class="fa-solid fa-hand-holding-dollar">
+              </i> 
+            <h2>Total Expenses</h2> 
+            <p>$58,420</p> 
+            </div>
+          </div>
+                <!-- container2 -->
+            <div class="grid-grid-item">
+              <div>
+                <i class="fa-solid fa-file-invoice-dollar"></i> 
+            <h2>Gross Profit</h2> 
+            <p>$237,813</p> 
+            </div>
+
+             <!-- container3 -->
+            </div>
+            <div class="grid-grid-item">
+              <div>
+                <i class="fa-solid fa-boxes-stacked"></i>
+            <h2>Closing Stock</h2> 
+            <p>1,423 p</p> 
+            </div>
+          </div>
+
+             <!-- container4 -->
+           
+            <div class="grid-grid-item">
+              <div>
+                <i class="fa-solid fa-warehouse"></i>
+            <h2>Warehouse</h2> 
+            <p>10</p> 
+            </div>
+            </div>
+             <!-- container5 -->
+
+            <div class="grid-grid-item">
+              <div>
+                <div>
+                  <i class="fa-solid fa-reply"></i>
+              <h2>Sales Returns</h2> 
+              <p>$43,703</p> 
+              </div>
+            </div>
+
+            <!-- container6  -->
+            
+          </div>
+            <div class="grid-grid-item">
+              <div>
+                <i class="fa-solid fa-reply fa-reply1"></i>
+            <h2>Purchase Returns</h2> 
+            <p>$9,035</p> 
+            </div>
+            </div>
+        </div>
+
+          <!-- chart -->
+           
+          <div>
+            <div class="chart-chart">
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'polarArea',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'pink'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+<script src="./admin.js"></script>
+</body>
+</html>

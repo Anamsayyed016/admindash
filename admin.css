@@ -1,0 +1,208 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(2, 21, 57)
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  /* Menu styles */
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Start hidden off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transition: left 0.3s ease; /* Smooth sliding effect */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+  }
+  
+  .menu li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .menu li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Menu button styles */
+  .menu-button {
+    position: fixed;
+    top: 4px;
+    left: 180px;
+    font-size: 24px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .menu-button:hover {
+    background-color: #5d36ee; /* Darker blue on hover */
+    color: rgb(1, 28, 28); /* Changes text color on hover */
+  }
+  .menu-button:focus {
+    outline: none;
+  }
+  
+  /* When menu is active */
+  .menu.active {
+    left: 0;
+  }
+  /* logo */
+  .img-img-logo img{
+    width: 10%;
+    margin-left: 18%;
+    border-radius: 50%;
+  }
+  .hea-head-head1{
+    margin-left: 20%;
+    color: antiquewhite;
+    font-family:"Merriweather", serif;
+    margin-top: -9%;
+    margin-left: 29%;
+  }
+   /* Style the search input */
+   input[type="search"] {
+    width: 300px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 50%;
+    margin-top: -5%;
+    position: absolute;
+  }
+
+  /* Focus effect */
+  input[type="search"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+  }
+
+  /* Placeholder styling */
+  input[type="search"]::placeholder {
+    color: #aaa;
+    font-style: italic;
+  }
+  .grid-grid-gridcontainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(3, 1fr);    
+    gap: 20px;                            
+    padding: 5px;
+ 
+  }
+  .grid-grid-item{
+    background-color: #1d257e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 80%;
+    border-radius: 8px;
+    
+  }
+
+  .grid-grid-item .fa-hand-holding-dollar{
+    font-size: 30px;
+    margin-left: -5%;
+    position: absolute;
+    margin-top: 2%;
+    background-color: aliceblue;
+    color: #007BFF;
+    padding: 10px;
+    border-radius: 18px;
+  }
+  /* container2 */
+  .grid-grid-item .fa-file-invoice-dollar{
+    font-size: 30px;
+    margin-left: -5%;
+    position: absolute;
+    margin-top: 2%;
+    background-color: aliceblue;
+    color: #007BFF;
+    padding: 10px;
+    border-radius: 18px;
+  }
+  /* container3 */
+
+  .grid-grid-item .fa-boxes-stacked{
+    font-size: 30px;
+    margin-left: -5%;
+    position: absolute;
+    margin-top: 2%;
+    background-color: aliceblue;
+    color: #007BFF;
+    padding: 10px;
+    border-radius: 18px;
+  }
+
+  /* container4 */
+
+  .grid-grid-item .fa-warehouse{
+    font-size: 30px;
+    margin-left: -5%;
+    position: absolute;
+    margin-top: 2%;
+    background-color: aliceblue;
+    color: #007BFF;
+    padding: 10px;
+    border-radius: 18px;
+  }
+
+  /* container5 */
+
+  .grid-grid-item .fa-reply{
+    font-size: 30px;
+    margin-left: -5%;
+    position: absolute;
+    margin-top: 0.8%;
+    background-color: aliceblue;
+    color: #ff5500;
+    padding: 10px;
+    border-radius: 18px;
+  }
+
+   /* container6 */
+
+   .grid-grid-item .fa-reply1{
+    font-size: 30px;
+    margin-left: -5%;
+    position: absolute;
+    margin-top: 0.8%;
+    background-color: aliceblue;
+    color: #803009;
+    padding: 10px;
+    border-radius: 18px;
+  }
+  /* chart */
+  .chart-chart{
+    width: 100vh;
+    height: 100vw;
+  }
