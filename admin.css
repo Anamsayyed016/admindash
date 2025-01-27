@@ -287,3 +287,100 @@ body {
 .product-card button:hover {
     background: #0056b3;
 }
+
+/* categories */
+
+.header1 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  position: absolute;
+  color: wheat;
+  margin-top: -30%;
+  margin-left: 2%;
+}
+
+.header h1 {
+  font-size: 28px;
+}
+
+.form-container {
+  margin-bottom: 30px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  margin-left: 2%;
+  margin-top: -25%;
+}
+
+.form-container h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-container input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-container button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: center;
+}
+
+.form-container button:hover {
+  background-color: #2980b9;
+}
+
+.categories {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.categories h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.categories ul {
+  list-style: none;
+  padding: 0;
+}
+
+.categories ul li {
+  padding: 10px;
+  background-color: #f8f8f8;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.categories ul li .subcategory {
+  margin-left: 20px;
+  font-size: 14px;
+  color: #555;
+}
