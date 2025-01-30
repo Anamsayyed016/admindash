@@ -4,65 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inventory Management</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f4f4f4;
-    }
-    .placeholder {
-      text-align: center;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 20px 30px;
-      max-width: 500px;
-    }
-    .placeholder h1 {
-      color: #333;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    .placeholder p {
-      color: #666;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-    .placeholder input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    .placeholder a {
-      display: inline-block;
-      background-color: #007bff;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    .placeholder a:hover {
-      background-color: #0056b3;
-    }
-  </style>
+  
 </head>
 <body>
-  <div class="placeholder">
-    <h1>Your Inventory Partner</h1>
-    <p>Effortless Inventory, Limitless Possibilities.</p>
-    <input type="text" placeholder="Search inventory...">
-    <a href="#">Explore Solutions</a>
-    <br><br>
-    <a href="#">Get Started Today</a>
-  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <canvas id="chart1"></canvas>
+  <canvas id="chart2"></canvas>
+  <canvas id="chart3"></canvas>
+  <script>
+    // First Chart
+    const ctx1 = document.getElementById('chart1').getContext('2d');
+    const chart1 = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+            datasets: [{
+                label: 'Sales',
+                data: [10, 20, 30, 40],
+                backgroundColor: 'rgba(255, 99, 132, 0.5)'
+            }]
+        }
+    });
+  
+    // Second Chart
+    const ctx2 = document.getElementById('chart2').getContext('2d');
+    const chart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+            datasets: [{
+                label: 'Revenue',
+                data: [15, 25, 35, 45],
+                borderColor: 'rgba(54, 162, 235, 1)',
+                fill: false
+            }]
+        }
+    });
+  
+    // Third Chart
+    const ctx3 = document.getElementById('chart3').getContext('2d');
+    const chart3 = new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow'],
+            datasets: [{
+                label: 'Colors',
+                data: [30, 40, 50],
+                backgroundColor: ['red', 'blue', 'yellow']
+            }]
+        }
+    });
+  </script>
+<canvas id="chart1"></canvas>
+<canvas id="chart2"></canvas>
+
+<script>
+  const chartConfigs = [
+      {
+          id: 'chart1',
+          type: 'bar',
+          data: [10, 20, 30, 40],
+          label: 'Sales',
+          backgroundColor: 'rgba(255, 99, 132, 0.5)'
+      },
+      {
+          id: 'chart2',
+          type: 'line',
+          data: [15, 25, 35, 45],
+          label: 'Revenue',
+          borderColor: 'rgba(54, 162, 235, 1)'
+      }
+  ];
+
+  chartConfigs.forEach(config => {
+      new Chart(document.getElementById(config.id).getContext('2d'), {
+          type: config.type,
+          data: {
+              labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+              datasets: [{
+                  label: config.label,
+                  data: config.data,
+                  backgroundColor: config.backgroundColor || 'transparent',
+                  borderColor: config.borderColor || 'transparent',
+                  fill: false
+              }]
+          }
+      });
+  });
+</script>
+  
+  
 </body>
 </html>

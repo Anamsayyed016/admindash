@@ -38,8 +38,9 @@
             <div class="grid-grid-item">
               <div>
                 <!-- container1 -->
-              <i class="fa-solid fa-hand-holding-dollar">
-              </i> 
+
+              <!-- <i class="fa-solid fa-hand-holding-dollar">
+              </i>  -->
             <h2>Total Expenses</h2> 
             <p>$58,420</p> 
             </div>
@@ -47,7 +48,7 @@
                 <!-- container2 -->
             <div class="grid-grid-item">
               <div>
-                <i class="fa-solid fa-file-invoice-dollar"></i> 
+                <!-- <i class="fa-solid fa-file-invoice-dollar"></i>  -->
             <h2>Gross Profit</h2> 
             <p>$237,813</p> 
             </div>
@@ -56,7 +57,7 @@
             </div>
             <div class="grid-grid-item">
               <div>
-                <i class="fa-solid fa-boxes-stacked"></i>
+                <!-- <i class="fa-solid fa-boxes-stacked"></i> -->
             <h2>Closing Stock</h2> 
             <p>1,423 p</p> 
             </div>
@@ -66,7 +67,7 @@
            
             <div class="grid-grid-item">
               <div>
-                <i class="fa-solid fa-warehouse"></i>
+                <!-- <i class="fa-solid fa-warehouse"></i> -->
             <h2>Warehouse</h2> 
             <p>10</p> 
             </div>
@@ -76,7 +77,7 @@
             <div class="grid-grid-item">
               <div>
                 <div>
-                  <i class="fa-solid fa-reply"></i>
+                  <!-- <i class="fa-solid fa-reply"></i> -->
               <h2>Sales Returns</h2> 
               <p>$43,703</p> 
               </div>
@@ -87,7 +88,7 @@
           </div>
             <div class="grid-grid-item">
               <div>
-                <i class="fa-solid fa-reply fa-reply1"></i>
+                <!-- <i class="fa-solid fa-reply fa-reply1"></i> -->
             <h2>Purchase Returns</h2> 
             <p>$9,035</p> 
             </div>
@@ -102,17 +103,20 @@
             <canvas id="myChart"></canvas>
           </div>
         </div>
+
+        
+      </div>
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
   const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
-    type: 'polarArea',
+    type: 'doughnut',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'pink'],
+      labels: ['Purchase', 'Sales', 'Expense', 'Gross Profit'],
       datasets: [{
-        label: '# of Votes',
+        // label: '# of Votes',
         data: [12, 19, 3, 5, 2, 3],
         borderWidth: 1
       }]
@@ -135,102 +139,84 @@
 <div class="container">
   <div class="products-grid">
       <div class="product-card">
-          <img src="https://via.placeholder.com/250x200" alt="Product 1">
+          <img src="./Image/huda.jpg" alt="Product 1">
           <div class="product-card-content">
-              <h3>Product Name 1</h3>
-              <p>Product description goes here. Short and concise.</p>
+              <h3> HUDA Professional </h3>
+              <p>Waterproof oil-free Longlasting Liquid 24-hour colour-true foundation</p>
               <p class="price">$10.99</p>
               <button>Add to Inventory</button>
           </div>
       </div>
       <div class="product-card">
-          <img src="https://via.placeholder.com/250x200" alt="Product 2">
+          <img src="./Image/conci.avif" alt="Product 2">
           <div class="product-card-content">
-              <h3>Product Name 2</h3>
-              <p>Product description goes here. Short and concise.</p>
+              <h3>Fauxfilter Luminous Matte Liquid Concealer</h3>
+              <p>Color Corrector from Huda Beauty is a highly effective color corrector that neutralizes skin imperfections, providing a perfect base for makeup application.</p>
               <p class="price">$15.49</p>
               <button>Add to Inventory</button>
           </div>
       </div>
       <div class="product-card">
-          <img src="https://via.placeholder.com/250x200" alt="Product 3">
+          <img src="./Image/eyesh.webp" alt="Product 3">
           <div class="product-card-content">
-              <h3>Product Name 3</h3>
-              <p>Product description goes here. Short and concise.</p>
+              <h3>Huda Beauty's New Mercury Retrograde</h3>
+              <p>The carefully-curated palette is filled with easy-to-use combinations-from dusty coppers, rosy pinks, golden taupe tones with pops of purple and blue.</p>
               <p class="price">$12.99</p>
               <button>Add to Inventory</button>
           </div>
       </div>
       <div class="product-card">
-          <img src="https://via.placeholder.com/250x200" alt="Product 4">
+          <img src="./Image/brush.webp" alt="Product 4">
           <div class="product-card-content">
-              <h3>Product Name 4</h3>
-              <p>Product description goes here. Short and concise.</p>
+              <h3>HUDA BEAUTY offers a range of high-quality makeup brushes 4</h3>
+              <p>HUDA BEAUTY makeup brushes are high-quality, ultra-soft synthetic brushes designed for flawless application.</p>
               <p class="price">$8.49</p>
               <button>Add to Inventory</button>
           </div>
       </div>
 
       <div class="product-card">
-        <img src="https://via.placeholder.com/250x200" alt="Product 4">
+        <img src="./Image/settingpow.avif" alt="Product 4">
         <div class="product-card-content">
-            <h3>Product Name 4</h3>
-            <p>Product description goes here. Short and concise.</p>
+            <h3>HUDA BEAUTY Easy Bake Loose Powder - Cherry Blossom - 20gr</h3>
+            <p>HUDA BEAUTY Easy Bake Loose Powder – Cherry Blossom (20g) is a lightweight, finely milled setting powder with a soft pink hue. It brightens the complexion, blurs imperfections, and controls shine for a flawless, airbrushed finish. Perfect for baking or setting makeup, it ensures long-lasting wear without flashback.</p>
             <p class="price">$8.49</p>
             <button>Add to Inventory</button>
         </div>
     </div>
 
     <div class="product-card">
-      <img src="https://via.placeholder.com/250x200" alt="Product 4">
+      <img src="./Image/lip.avif" alt="Product 4">
       <div class="product-card-content">
-          <h3>Product Name 4</h3>
-          <p>Product description goes here. Short and concise.</p>
+          <h3>Huda Beauty Matte Lipstick</h3>
+          <p>HUDA BEAUTY Matte Lipstick is a highly pigmented, long-wearing lipstick with a smooth, velvety matte finish. Its lightweight, non-drying formula glides on effortlessly, providing full coverage and all-day comfort. Available in a range of stunning shades for every skin tone.</p>
           <p class="price">$8.49</p>
           <button>Add to Inventory</button>
       </div>
   </div>
   </div>
 </div>
-<!-- catgories -->
-<div class="header1">
-  <h1>Manage Categories</h1>
-</div>
 
-<div class="form-container">
-  <h3>Add a New Category</h3>
-  <form>
-      <input type="text" placeholder="Enter category name" required>
-      <input type="text" placeholder="Enter subcategory name (optional)">
-      <button type="submit">Add Category</button>
-  </form>
-</div>
+<!-- chart===2 -->
 
-<div class="categories">
-  <h3>Category List</h3>
-  <ul>
-      <li>Hair Products
-          <ul>
-              <li class="subcategory">Shampoos</li>
-              <li class="subcategory">Conditioners</li>
-          </ul>
-      </li>
-      <li>Skin Care
-          <ul>
-              <li class="subcategory">Moisturizers</li>
-              <li class="subcategory">Sunscreens</li>
-          </ul>
-      </li>
-      <li>Nail Care
-          <ul>
-              <li class="subcategory">Nail Polishes</li>
-              <li class="subcategory">Cuticle Oils</li>
-          </ul>
-      </li>
-      <li>Tools & Equipment</li>
-  </ul>
-</div>
-
+<div>
+  <div class="chart-chart">
+  <canvas id="chart2"></canvas>
+<div>
+  <script>
+    const stackedLine = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        scales: {
+            y: {
+                stacked: true
+            }
+        }
+    }
+});
+  </script>
 <script src="./admin.js"></script>
+
 </body>
 </html>
