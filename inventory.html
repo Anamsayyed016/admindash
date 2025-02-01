@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="./inventory.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
+        <h1>Inventory Management</h1>
+        
+        <!-- Form to add new product -->
+        <div class="form-container">
+          <input type="file" id="img" accept="image/*" placeholder="Product Image">
+          <input type="text" id="product_name" placeholder="Product Name">
+          <textarea id="description" placeholder="Product Description"></textarea>
+          <input type="number" id="price" placeholder="Price">
+          <input type="number" id="quantity" placeholder="Quantity">
+          <button onclick="addProduct()">Add Product</button>
+        </div>
     
+        <!-- Table to display the inventory -->
+        <table id="inventory-table">
+          <thead>
+            <tr>
+            <th>Id</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Delete</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody id="showdata">
+        
+          </tbody>
+          <div id="editform"></div>
+        </table>
+      </div>
+    <script src="./invent.js"></script>
 </body>
 </html>

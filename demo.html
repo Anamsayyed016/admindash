@@ -1,98 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inventory Management</title>
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+    </style>
 </head>
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <canvas id="chart1"></canvas>
-  <canvas id="chart2"></canvas>
-  <canvas id="chart3"></canvas>
-  <script>
-    // First Chart
-    const ctx1 = document.getElementById('chart1').getContext('2d');
-    const chart1 = new Chart(ctx1, {
-        type: 'bar',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr'],
-            datasets: [{
-                label: 'Sales',
-                data: [10, 20, 30, 40],
-                backgroundColor: 'rgba(255, 99, 132, 0.5)'
-            }]
-        }
-    });
-  
-    // Second Chart
-    const ctx2 = document.getElementById('chart2').getContext('2d');
-    const chart2 = new Chart(ctx2, {
-        type: 'line',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr'],
-            datasets: [{
-                label: 'Revenue',
-                data: [15, 25, 35, 45],
-                borderColor: 'rgba(54, 162, 235, 1)',
-                fill: false
-            }]
-        }
-    });
-  
-    // Third Chart
-    const ctx3 = document.getElementById('chart3').getContext('2d');
-    const chart3 = new Chart(ctx3, {
-        type: 'doughnut',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow'],
-            datasets: [{
-                label: 'Colors',
-                data: [30, 40, 50],
-                backgroundColor: ['red', 'blue', 'yellow']
-            }]
-        }
-    });
-  </script>
-<canvas id="chart1"></canvas>
-<canvas id="chart2"></canvas>
+    <h2>Inventory Management</h2>
 
-<script>
-  const chartConfigs = [
-      {
-          id: 'chart1',
-          type: 'bar',
-          data: [10, 20, 30, 40],
-          label: 'Sales',
-          backgroundColor: 'rgba(255, 99, 132, 0.5)'
-      },
-      {
-          id: 'chart2',
-          type: 'line',
-          data: [15, 25, 35, 45],
-          label: 'Revenue',
-          borderColor: 'rgba(54, 162, 235, 1)'
-      }
-  ];
+    <input type="text" id="title" placeholder="Title">
+    <input type="text" id="imageUrl" placeholder="Image URL">
+    <input type="text" id="description" placeholder="Description">
+    <input type="number" id="price" placeholder="Price">
+    <input type="number" id="quantity" placeholder="Quantity">
+    <button onclick="addItem()">Add Item</button>
 
-  chartConfigs.forEach(config => {
-      new Chart(document.getElementById(config.id).getContext('2d'), {
-          type: config.type,
-          data: {
-              labels: ['Jan', 'Feb', 'Mar', 'Apr'],
-              datasets: [{
-                  label: config.label,
-                  data: config.data,
-                  backgroundColor: config.backgroundColor || 'transparent',
-                  borderColor: config.borderColor || 'transparent',
-                  fill: false
-              }]
-          }
-      });
-  });
-</script>
-  
-  
+    <table id="inventoryTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        let idCounter = 1;
+
+        function addItem() {
+            const title = document.getElementById("title").value;
+            const imageUrl = document.getElementById("imageUrl").value;
+            const description = document.getElementById("description").value;
+            const price = document.getElementById("price").value;
+            const quantity = document.getElementById("quantity").value;
+
+            if (!title || !imageUrl || !description || !price || !quantity) {
+                alert("Please fill all fields");
+                return;
+            }
+
+            const table = document.getElementById("inventoryTable").getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            newRow.innerHTML = `
+                <td>${idCounter}</td>
+                <td>${title}</td>
+                <td><img src="${imageUrl}" width="50"></td>
+                <td>${description}</td>
+                <td>${price}</td>
+                <td>${quantity}</td>
+                <td><button onclick="deleteRow(this)">Delete</button></td>
+                <td><button onclick="editRow(this)">Edit</button></td>
+            `;
+
+            idCounter++;
+
+            // Clear input fields
+            document.getElementById("title").value = "";
+            document.getElementById("imageUrl").value = "";
+            document.getElementById("description").value = "";
+            document.getElementById("price").value = "";
+            document.getElementById("quantity").value = "";
+        }
+
+        function deleteRow(button) {
+            button.parentElement.parentElement.remove();
+        }
+
+        function editRow(button) {
+            const row = button.parentElement.parentElement;
+            document.getElementById("title").value = row.cells[1].innerText;
+            document.getElementById("imageUrl").value = row.cells[2].querySelector("img").src;
+            document.getElementById("description").value = row.cells[3].innerText;
+            document.getElementById("price").value = row.cells[4].innerText;
+            document.getElementById("quantity").value = row.cells[5].innerText;
+            row.remove();
+        }
+    </script>
 </body>
 </html>
