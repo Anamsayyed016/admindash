@@ -1,94 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Management</title>
     <style>
-        table, th, td {
-            border: 1px solid black;
+        /* Basic styling (you'll likely want to improve this) */
+        table {
+            width: 100%;
             border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
             padding: 8px;
+            text-align: left;
+        }
+        img {
+            max-width: 50px;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <h2>Inventory Management</h2>
+    <div class="container">
+        <h1>Inventory Management</h1>
 
-    <input type="text" id="title" placeholder="Title">
-    <input type="text" id="imageUrl" placeholder="Image URL">
-    <input type="text" id="description" placeholder="Description">
-    <input type="number" id="price" placeholder="Price">
-    <input type="number" id="quantity" placeholder="Quantity">
-    <button onclick="addItem()">Add Item</button>
+        <div class="form-container">
+            <input type="file" id="img" accept="image/*" placeholder="Product Image">
+            <input type="text" id="product_name" placeholder="Product Name">
+            <textarea id="description" placeholder="Product Description"></textarea>
+            <input type="number" id="price" placeholder="Price">
+            <input type="number" id="quantity" placeholder="Quantity">
+            <button onclick="addProduct()">Add Product</button>
+        </div>
 
-    <table id="inventoryTable">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Image</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Delete</th>
-                <th>Edit</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-
+        <table id="inventory-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody id="showdata"></tbody>
+        </table>
+        <div id="editform"></div>
+    </div>
     <script>
-        let idCounter = 1;
+        // invent.js
+document.addEventListener('DOMContentLoaded', () => {
+    const imgInput = document.getElementById('img');
+    const productNameInput = document.getElementById('product_name');
+    const descriptionInput = document.getElementById('description');
+    const priceInput = document.getElementById('price');
+    const quantityInput = document.getElementById('quantity');
+    const inventoryTable = document.getElementById('showdata'); // Corrected ID
 
-        function addItem() {
-            const title = document.getElementById("title").value;
-            const imageUrl = document.getElementById("imageUrl").value;
-            const description = document.getElementById("description").value;
-            const price = document.getElementById("price").value;
-            const quantity = document.getElementById("quantity").value;
+    let products = [];
+    let nextProductId = 1;
 
-            if (!title || !imageUrl || !description || !price || !quantity) {
-                alert("Please fill all fields");
-                return;
-            }
+    function renderInventory() {
+        inventoryTable.innerHTML = ''; // Clear the table body
 
-            const table = document.getElementById("inventoryTable").getElementsByTagName('tbody')[0];
-            const newRow = table.insertRow();
-            newRow.innerHTML = `
-                <td>${idCounter}</td>
-                <td>${title}</td>
-                <td><img src="${imageUrl}" width="50"></td>
-                <td>${description}</td>
-                <td>${price}</td>
-                <td>${quantity}</td>
-                <td><button onclick="deleteRow(this)">Delete</button></td>
-                <td><button onclick="editRow(this)">Edit</button></td>
+        products.forEach(product => {
+            const row = inventoryTable.insertRow();
+            row.innerHTML = `
+                <td>${product.id}</td>
+                <td><img src="${product.image}" alt="Product Image"></td>
+                <td>${product.name}</td>
+                <td>${product.description}</td>
+                <td>${product.price}</td>
+                <td>${product.quantity}</td>
+                <td><button onclick="deleteProduct(${product.id})">Delete</button></td>
+                <td><button onclick="editProduct(${product.id})">Edit</button></td>
             `;
+        });
+    }
 
-            idCounter++;
+    window.addProduct = function() {
+        const imageFile = imgInput.files[0]; // Get the first selected file
+        const productName = productNameInput.value;
+        const description = descriptionInput.value;
+        const price = parseFloat(priceInput.value);
+        const quantity = parseInt(quantityInput.value);
 
-            // Clear input fields
-            document.getElementById("title").value = "";
-            document.getElementById("imageUrl").value = "";
-            document.getElementById("description").value = "";
-            document.getElementById("price").value = "";
-            document.getElementById("quantity").value = "";
+        if (!imageFile || !productName || !description || isNaN(price) || isNaN(quantity) || price < 0 || quantity < 0) {
+            alert("Please fill in all fields correctly (positive numbers).");
+            return;
         }
 
-        function deleteRow(button) {
-            button.parentElement.parentElement.remove();
-        }
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const imageData = e.target.result;
 
-        function editRow(button) {
-            const row = button.parentElement.parentElement;
-            document.getElementById("title").value = row.cells[1].innerText;
-            document.getElementById("imageUrl").value = row.cells[2].querySelector("img").src;
-            document.getElementById("description").value = row.cells[3].innerText;
-            document.getElementById("price").value = row.cells[4].innerText;
-            document.getElementById("quantity").value = row.cells[5].innerText;
-            row.remove();
+            const newProduct = {
+                id: nextProductId++,
+                image: imageData,
+                name: productName,
+                description: description,
+                price: price,
+                quantity: quantity
+            };
+
+            products.push(newProduct);
+            renderInventory();
+
+            // Clear form inputs (optional)
+            imgInput.value = '';
+            productNameInput.value = '';
+            descriptionInput.value = '';
+            priceInput.value = '';
+            quantityInput.value = '';
         }
+        reader.readAsDataURL(imageFile); // Start reading the image
+    };
+
+
+    window.deleteProduct = function(id) {
+      products = products.filter(product => product.id !== id);
+      renderInventory();
+    };
+
+    window.editProduct = function(id) {
+      // Implement your edit logic here
+      console.log("Edit product with ID: " + id);
+    };
+
+    renderInventory(); // Initial render (if any data is in 'products')
+});
     </script>
-</body>
+    <script src="invent.js"></script> </body>
 </html>
