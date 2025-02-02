@@ -2,19 +2,22 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: rgb(2, 21, 57)
+
   }
 
   .container {
     width: 80%;
     margin: 30px auto;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgb(2, 21, 57);
+    box-shadow: 0 4px 8px rgba(80, 24, 24, 0.1);
   }
 
   h1 {
     text-align: center;
+    color: rgb(186, 206, 247);
+    text-transform: uppercase;
   }
 
   .form-container {
@@ -31,7 +34,6 @@ body {
     width: 300px;
     margin: 10px;
     padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 5px;
   }
 
@@ -56,12 +58,15 @@ body {
   }
 
   table, th, td {
-    border: 1px solid #ddd;
+    border: 5px solid #749cee;
   }
 
   th, td {
     padding: 10px;
     text-align: center;
+    color: aliceblue;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
   .actions button {
