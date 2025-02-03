@@ -109,7 +109,7 @@ async function updateProduct() {
             quantity: parseInt(document.getElementById("edit_quantity").value)
         };
         
-        // Remove undefined fields (keeps existing image if no new image is uploaded)
+       
         Object.keys(updatedProduct).forEach(key => updatedProduct[key] === undefined && delete updatedProduct[key]);
 
         try {
